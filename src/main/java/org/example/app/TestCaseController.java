@@ -35,17 +35,18 @@ public class TestCaseController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ResponseBody
-    public String saveTestCases(@RequestParam("testCases") String testCases) {
+    public String saveTestCases(@RequestParam("testCases") String testCases, Model model) {
         ExcelWriter excelWriter = new ExcelWriter();
         String filePath = "test_cases.xlsx"; // Specify your desired file path
         try {
             excelWriter.writeTestCasesToExcel(testCases, filePath);
-            return "Test cases saved to " + filePath;
+            model.addAttribute("message", "Test cases saved to " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
-            return "Error saving test cases: " + e.getMessage();
+            model.addAttribute("message", "Error saving test cases: " + e.getMessage());
         }
+        model.addAttribute("testCases", testCases);
+        return "index";
     }
 }
 

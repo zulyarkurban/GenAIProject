@@ -11,9 +11,19 @@
         <textarea name="userStory" placeholder="Enter user story here..."></textarea>
         <button type="submit">Generate Test Cases</button>
     </form>
-    <pre class="test-cases" th:text="${testCases}"></pre>
 
-    <form action="/save" method="post" class="save-form">
+    <div th:if="${message}">
+        <p class="notification" th:classappend="${errorMessage} ? 'error' : ''" th:text="${message}"></p>
+    </div>
+
+    <div th:if="${testCases}">
+        <h2>Generated Test Cases</h2>
+        <div class="test-cases">
+            <pre th:utext="${testCases}"></pre>
+        </div>
+    </div>
+
+    <form action="/save" method="post" class="save-form" th:if="${testCases}">
         <textarea name="testCases" th:text="${testCases}" style="display:none;"></textarea>
         <button type="submit">Save to Excel</button>
     </form>
