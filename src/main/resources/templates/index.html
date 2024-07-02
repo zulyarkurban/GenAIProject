@@ -2,12 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Test Case Generator</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<form action="/generate" method="post">
-    <textarea name="userStory" placeholder="Enter user story here..."></textarea>
-    <button type="submit">Generate Test Cases</button>
-</form>
-<pre th:text="${testCases}"></pre>
+<div class="container">
+    <h1>Test Case Generator</h1>
+    <form action="/generate" method="post" class="user-story-form">
+        <textarea name="userStory" placeholder="Enter user story here..."></textarea>
+        <button type="submit">Generate Test Cases</button>
+    </form>
+    <pre class="test-cases" th:text="${testCases}"></pre>
+
+    <form action="/save" method="post" class="save-form">
+        <textarea name="testCases" th:text="${testCases}" style="display:none;"></textarea>
+        <button type="submit">Save to Excel</button>
+    </form>
+</div>
 </body>
 </html>
