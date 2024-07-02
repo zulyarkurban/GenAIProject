@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,3 +29,19 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/test-case-generator .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/test-case-generator
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+      - name: Run Docker container
+        run: |
+          docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/test-case-generator
+          docker run -d -p 80:8080 \
+            -e CHATGPT_API_KEY=${{ secrets.CHATGPT_API_KEY }} \
+            -e CHATGPT_API_URL=${{ secrets.CHATGPT_API_URL }} \
+            ${{ secrets.DOCKER_HUB_USERNAME }}/test-case-generator

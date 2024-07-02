@@ -1,22 +1,41 @@
 package org.example.app;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ChatGPTClient {
-    private static final String API_KEY = System.getenv("AZURE_OPENAI_API_KEY");
-    private static final String API_URL = System.getenv("AZURE_OPENAI_ENDPOINT");
+
+    private final String apiKey;
+    private final String apiUrl;
+
+    @Autowired
+    public ChatGPTClient(Environment environment) {
+        this.apiKey = environment.getProperty("chatgpt.api.key");
+        this.apiUrl = environment.getProperty("chatgpt.api.url");
+    }
+
     public String getTestCases(String userStory) throws Exception {
         if (userStory == null || userStory.isEmpty()) {
             throw new IllegalArgumentException("User story cannot be null or empty");
+        }
+
+        // Handle potential null values
+        if (this.apiKey == null || this.apiKey.isEmpty()) {
+            throw new IllegalStateException("API Key is not configured.");
+        }
+        if (this.apiUrl == null || this.apiUrl.isEmpty()) {
+            throw new IllegalStateException("API URL is not configured.");
         }
 
         HttpClient client = HttpClient.newHttpClient();
@@ -32,9 +51,9 @@ public class ChatGPTClient {
         String requestBodyJson = objectMapper.writeValueAsString(requestBody);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(API_URL))
+                .uri(new URI(this.apiUrl))
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + API_KEY)
+                .header("Authorization", "Bearer " + this.apiKey)
                 .POST(HttpRequest.BodyPublishers.ofString(requestBodyJson))
                 .build();
 
