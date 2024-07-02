@@ -19,7 +19,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the built JAR file from the first stage
-COPY --from=build /app/target/GenAIProject-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/GenAIProject-1.0-SNAPSHOT.jar app.jar
 
 # Expose the port that the application runs on
 EXPOSE 8080
