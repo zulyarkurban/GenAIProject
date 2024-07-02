@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Case Generator</title>
+</head>
+<body>
+<form action="/generate" method="post">
+    <textarea name="userStory" placeholder="Enter user story here..."></textarea>
+    <button type="submit">Generate Test Cases</button>
+</form>
+<pre th:text="${testCases}"></pre>
+</body>
+</html>
