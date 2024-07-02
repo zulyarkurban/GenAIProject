@@ -21,6 +21,7 @@ The Test Case Generator application allows users to input a user story and recei
 - Input user stories through a web interface
 - Generate test cases using OpenAI's GPT-3.5 API
 - Save generated test cases to an Excel file
+- Improved UI with CSS styling
 
 ## Installation
 
@@ -72,3 +73,34 @@ Update the `application.properties` file with your OpenAI API key:
 
 ```properties
 openai.api.key=your_openai_api_key
+
+test-case-generator
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── org
+│   │   │       └── example
+│   │   │           └── app
+│   │   │               ├── TestCaseGeneratorApp.java
+│   │   │               ├── TestCaseController.java
+│   │   │               ├── ChatGPTClient.java
+│   │   │               └── ExcelWriter.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── templates
+│   │       │   └── index.html
+│   │       └── static
+│   │           └── css
+│   │               └── styles.css
+│   └── test
+│       └── java
+│           └── org
+│               └── example
+│                   └── app
+│                       └── TestCaseGeneratorAppTests.java
+│
+├── .gitignore
+├── LICENSE
+├── pom.xml
+└── README.md
