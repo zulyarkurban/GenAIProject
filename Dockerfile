@@ -1,22 +1,14 @@
-# Use the base image
-FROM mcr.microsoft.com/azure-buildpacks/java:17.0.9-debian-bullseye
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:11-jre-slim
 
-# Set environment variables
-ENV BP_JVM_VERSION=17
-ENV BP_JDK_URL=https://msjavafiles.blob.core.windows.net/jdk/microsoft-jdk-17.0.9-linux-x64.tar.gz
-
-# Install Maven
-USER root
-RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y maven
-
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy application files and the build script
-COPY . /app
+# Copy the project jar file into the container at /app
+COPY target/GenAIProject-0.0.1-SNAPSHOT.jar app.jar
 
-# Ensure the build script is executable
-RUN chmod +x build.sh
+# Expose the port that the application runs on
+EXPOSE 8080
 
-# Run the build command
-RUN ./build.sh  # Replace with your actual build command
+# Run the jar file
+ENTRYPOINT ["java", "-jar", "app.jar"]
