@@ -46,14 +46,14 @@ jobs:
 
       - name: Build and Push Docker image to Heroku
         run: |
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/genai-project registry.heroku.com/your-heroku-app/web
-          docker push registry.heroku.com/your-heroku-app/web
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/genai-project registry.heroku.com/genaiproject/web
+          docker push registry.heroku.com/genaiproject/web
 
       - name: Release the Docker image on Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          heroku container:release web --app your-heroku-app
+          heroku container:release web --app genaiproject
 
       - name: Log out from Heroku
         run: docker logout registry.heroku.com
