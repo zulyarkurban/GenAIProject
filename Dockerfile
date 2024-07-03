@@ -9,7 +9,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 # Copy the entire project and build the application
-COPY src ./src
+COPY . .
 RUN mvn clean package
 
 # Second stage: Create the final image
@@ -21,8 +21,8 @@ WORKDIR /app
 # Copy the built JAR file from the first stage
 COPY --from=build /app/target/GenAIProject-1.0-SNAPSHOT.jar app.jar
 
-# Expose the port that the application runs on
-EXPOSE 8080
+# Set environment variable for Heroku's dynamic port
+ENV PORT=${PORT}
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "java -jar app.jar --server.port=${PORT}"]
