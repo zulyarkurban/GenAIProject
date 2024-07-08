@@ -52,10 +52,12 @@ button:hover {
 
 .test-cases {
     white-space: pre-wrap;
+    word-wrap: break-word;
     background-color: #f1f1f1;
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 20px;
+    overflow: auto;
 }
 
 .notification {
@@ -74,4 +76,59 @@ button:hover {
     background-color: #f8d7da;
     color: #721c24;
     border-color: #f5c6cb;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 24px;
+    }
+
+    textarea {
+        height: 120px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .notification {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 5px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    textarea {
+        height: 100px;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .notification {
+        font-size: 12px;
+        padding: 8px;
+    }
 }
