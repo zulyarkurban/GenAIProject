@@ -1,4 +1,4 @@
-package org.example.app;
+package com.uyghurdevops.app;
 import org.springframework.boot.SpringApplication;
 
 public class TestCaseGeneratorApp{

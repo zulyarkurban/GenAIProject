@@ -1,4 +1,4 @@
-package org.example.app;
+package com.uyghurdevops.app;
 import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.ai.openai.models.ChatChoice;

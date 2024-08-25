@@ -1,4 +1,4 @@
-package org.example.app;
+package com.uyghurdevops.app;
 
 import java.net.URI;
 import java.net.http.HttpClient;
