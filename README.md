@@ -56,12 +56,11 @@ The Test Case Generator application allows users to input a user story and recei
   $env:OPENAI_API_KEY = "your_api_key"
    $env:OPENAI_API_URL = "your_api_url"
    $env:OPENAI_API_MODEL = "open_ai_model_version"
-##### Mac OS / Linux:  
-    ```cmd
+##### Mac OS / Linux:
       export OPENAI_API_KEY=your_api_key
       export OPENAI_API_URL=your_api_url
       export OPENAI_API_MODEL=open_ai_model_version
-
+      
 3. Build the project:
     ```sh
     mvn clean install

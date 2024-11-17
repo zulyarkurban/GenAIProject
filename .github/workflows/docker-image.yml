@@ -58,11 +58,16 @@ jobs:
           docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/genai-project registry.heroku.com/genaiproject/web
           docker push registry.heroku.com/genaiproject/web
 
-      # Step 10: Set the Heroku app stack to "container" (if needed)
-      - name: Set Heroku stack to container
+      # Step 10: Set Environment Variables on Heroku
+      - name: Set Environment Variables in Heroku Config Vars
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku stack:set container --app genaiproject
+        run: |
+          heroku config:set \
+          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
+          OPENAI_API_URL=${{ secrets.OPENAI_API_URL }} \
+          OPENAI_API_MODEL=${{ secrets.OPENAI_API_MODEL }} \
+          --app genaiproject
 
       # Step 11: Release the Docker image on Heroku
       - name: Release the Docker image on Heroku
