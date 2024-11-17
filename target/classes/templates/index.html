@@ -26,12 +26,12 @@
     </div>
 
     <!-- Save button is only visible if testCases are present and not empty -->
-    <!--  <div th:if="${testCases != null && !testCases.isEmpty()}">
+   <div th:if="${testCases != null && !testCases.isEmpty()}">
          <form action="/save" method="post" class="save-form">
              <textarea name="testCases" th:text="${testCases}" style="display:none;"></textarea>
              <button type="submit">Save to Excel</button>
          </form>
-     </div>-->
+     </div>
 
      <!-- Message container to show notifications after saving -->
     <div id="message-container" th:classappend="${saved} ? '' : 'hidden'">

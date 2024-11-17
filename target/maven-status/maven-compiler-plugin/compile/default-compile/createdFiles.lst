@@ -1,7 +1,6 @@
-org/example/app/ChatGPTClient.class
-org/example/app/CustomErrorController.class
-org/example/app/OpenAI.class
-org/example/app/TestCaseController.class
-org/example/app/ExcelWriter.class
-org/example/app/TestCaseGeneratorApplication.class
-org/example/app/TestCaseGeneratorApp.class
+com/hexaware/app/HEXGenAIClient.class
+com/hexaware/app/TestCaseGeneratorApplication.class
+com/hexaware/app/TestCaseGeneratorApp.class
+com/hexaware/app/TestCaseController.class
+com/hexaware/app/ExcelWriter.class
+com/hexaware/app/CustomErrorController.class

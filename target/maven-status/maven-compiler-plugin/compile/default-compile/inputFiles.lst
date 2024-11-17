@@ -1,7 +1,6 @@
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/OpenAI.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/ExcelWriter.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/TestCaseGeneratorApp.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/ChatGPTClient.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/CustomErrorController.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/TestCaseGeneratorApplication.java
-/Users/uyghur/Documents/Projects/GenAIProject/src/main/java/org/example/app/TestCaseController.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/CustomErrorController.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/HEXGenAIClient.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/TestCaseController.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/TestCaseGeneratorApplication.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/TestCaseGeneratorApp.java
+/Users/uyghur/Documents/Projects/HEX_GEN_AI/src/main/java/com/hexaware/app/ExcelWriter.java

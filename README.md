@@ -41,6 +41,26 @@ The Test Case Generator application allows users to input a user story and recei
     ```properties
     openai.api.key=your_openai_api_key
     ```
+   OR
+### Setup your environment variable in local running below command
+
+##### Windows OS:
+- **For Command Prompt:**
+  ```cmd
+  set OPENAI_API_KEY=your_api_key
+  set OPENAI_API_URL=your_api_url
+  set OPENAI_API_MODEL=open_ai_model_version
+
+- **For PowerShell:**
+  ```cmd
+  $env:OPENAI_API_KEY = "your_api_key"
+   $env:OPENAI_API_URL = "your_api_url"
+   $env:OPENAI_API_MODEL = "open_ai_model_version"
+##### Mac OS / Linux:  
+    ```cmd
+      export OPENAI_API_KEY=your_api_key
+      export OPENAI_API_URL=your_api_url
+      export OPENAI_API_MODEL=open_ai_model_version
 
 3. Build the project:
     ```sh
@@ -63,15 +83,13 @@ The Test Case Generator application allows users to input a user story and recei
 ### OpenAI API Key
 Update the `application.properties` file with your OpenAI API key:
 ```properties
-openai.api.key=your_openai_api_key
-
 test-case-generator
 │
 ├── src
 │   ├── main
 │   │   ├── java
-│   │   │   └── org
-│   │   │       └── example
+│   │   │   └── com
+│   │   │       └── hexaware
 │   │   │           └── app
 │   │   │               ├── TestCaseGeneratorApp.java
 │   │   │               ├── TestCaseController.java
